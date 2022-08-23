@@ -39,7 +39,7 @@ import java.awt.Color;
       You should now see an error on Circle.radius and Circle.color
  *    This is because when a variable is static it can be used BEFORE a circle
  *    object is created.
- * 
+ *
  * 7. Move the prints below the code that makes the Circle objects and change:
  *    Circle.radius to circle1.radius
  *    Circle.color to circle1.color
@@ -60,19 +60,22 @@ import java.awt.Color;
  *    member variables inside the static addCircles() method.
  */
 public class StaticKeywordDemo {
-    Canvas canvas;
+    static Canvas canvas;
     
     StaticKeywordDemo() {
         canvas = new Canvas();
         addCircles();
     }
     
-    void addCircles() {
+    static void addCircles() {
         
         Circle circle1 = new Circle(20, Color.BLUE);
         Circle circle2 = new Circle(50, Color.RED);
         Circle circle3 = new Circle(100, Color.GREEN);
         
+        System.out.println("circle radius = " + circle1.radius);
+   	 	System.out.println("circle color = " + circle1.color);
+   	 	
         canvas.addCircle(circle1);
         canvas.addCircle(circle2);
         canvas.addCircle(circle3);
