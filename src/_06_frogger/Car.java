@@ -1,24 +1,26 @@
 package _06_frogger;
 import processing.core.PApplet;
 
-public class Car extends PApplet{
+public class Car {
 	
 	int carX;
 	int carY;
 	int carSpeed;
 	int carSize;
+	PApplet processing;
 	
-	public Car(int carX, int carY, int carSpeed, int carSize) {
+	public Car(int carX, int carY, int carSpeed, int carSize, PApplet processing) {
 		this.carX=carX;
 		this.carY=carY;
 		this.carSpeed=carSpeed;
 		this.carSize=carSize;
+		this.processing = processing;
 		
 	}
 	public void display()
 	  {
-		fill(0, 255, 0);
-	    rect(carX , carY,  carSize, 50);
+		processing.fill(255, 0, 0);
+	    processing.rect(carX , carY,  carSize, 50);
 	  }
 
 	public void driveLeft() {
@@ -29,9 +31,19 @@ public class Car extends PApplet{
 	}
 	public void driveRight() {
 		carX+=carSpeed;
-		if (carX > width) {
+		if (carX > processing.width) {
 			carX = 0-carSize;
 		}
+	}
+	
+	public int getX() {
+		return carX;
+	}
+	public int getY() {
+		return carY;
+	}
+	public int getSize() {
+		return carSize;
 	}
 	
 	
